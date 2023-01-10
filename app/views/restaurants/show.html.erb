@@ -1,0 +1,7 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h1><%= @restaurant.name %></h1>
+    <div><%= @restaurant.address %></div><div><%= @restaurant.phone_number %></div>
+  </div>
+</div>
+<%= link_to "See All Restaurants", restaurants_path, :class => "btn btn-primary mt-3" %>

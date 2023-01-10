@@ -1,0 +1,7 @@
+<h1>Restaurants 🍽️ 🥣 🥢</h1>
+<%= link_to "Add new", new_restaurant_path, :class => "btn btn-primary" %>
+<ul class="list-group mt-3">
+  <% @restaurants.each do |restaurant| %>
+    <li class="list-group-item d-flex justify-content-between align-items-start"><div class="ms-2 me-auto"><div class="fw-bold"><%= link_to restaurant.name, restaurant_path(restaurant) %></div><div><%= restaurant.address %></div><div><%= restaurant.phone_number %></div></div></li>
+  <% end %>
+</ul>
