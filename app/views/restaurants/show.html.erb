@@ -4,4 +4,13 @@
     <div><%= @restaurant.address %></div><div><%= @restaurant.phone_number %></div>
   </div>
 </div>
-<%= link_to "See All Restaurants", restaurants_path, :class => "btn btn-primary mt-3" %>
+<ul class="list-group mt-3">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %><br>
+      <h1><%= "⭐" * review.rating %></h1>
+      <div style="float:right">🗑<em></em><%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "📝 Review this Restaurant", new_restaurant_review_path(@restaurant), class: "mt-3 btn btn-secondary" %>
+<%= link_to "↺ Back to Restaurants", restaurants_path, class: "mt-3 btn btn-secondary" %>
